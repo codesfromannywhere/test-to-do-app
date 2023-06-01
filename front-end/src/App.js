@@ -18,7 +18,7 @@ function App() {
 
    // Damit werden wir was löschen
   const deleteTodo = (index) => {
-    fetch('http://localhost:3001/todos/' + todos[index].id , {
+    fetch('/todos' + todos[index].id , {
       method: "DELETE"
     })
     const newTodos = [...todos];
@@ -29,7 +29,7 @@ function App() {
 
   useEffect(()=>{
     const getData = async () => {
-      const result = await fetch('http://localhost:3001/todos', {})
+      const result = await fetch('/todos', {})
       const data = await result.json()
       setTodos(data)
     }
@@ -47,7 +47,7 @@ function App() {
       complete : false
     })
 
-    fetch("http://localhost:3001/todos", {
+    fetch("/todos", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
